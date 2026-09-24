@@ -21,4 +21,16 @@ public class TaskService {
     public List<Task> listAll() {
         return List.copyOf(tasks);
     }
+
+    /**
+     * 按优先级筛选任务。
+     *
+     * @param priority 目标优先级
+     * @return 匹配的任务快照；没有匹配任务时返回空列表
+     */
+    public List<Task> filterByPriority(Task.Priority priority) {
+        return tasks.stream()
+                .filter(task -> task.getPriority() == priority)
+                .toList();
+    }
 }
