@@ -25,10 +25,14 @@ public class TaskService {
     /**
      * 按优先级筛选任务。
      *
-     * @param priority 目标优先级
+     * @param priority 目标优先级，不能为 {@code null}
      * @return 匹配的任务快照；没有匹配任务时返回空列表
+     * @throws IllegalArgumentException 当 {@code priority} 为 {@code null} 时
      */
     public List<Task> filterByPriority(Task.Priority priority) {
+        if (priority == null) {
+            throw new IllegalArgumentException("任务优先级不能为空");
+        }
         return tasks.stream()
                 .filter(task -> task.getPriority() == priority)
                 .toList();

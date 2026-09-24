@@ -65,4 +65,12 @@ class TaskServiceTest {
 
         assertTrue(result.isEmpty());
     }
+
+    @Test
+    void shouldRejectNullPriority() {
+        TaskService service = new TaskService();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> service.filterByPriority(null));
+    }
 }
