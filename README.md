@@ -65,3 +65,8 @@ git push origin v0.1.0
 - 作者不能批准自己的 Pull Request；评审意见处理完毕且 CI 通过后再合并。
 - 不提交 `.idea/`、`target/`、访问令牌、账号密码或个人隐私数据。
 - 禁止使用 `git push --force` 修改共享的 `main` 分支。
+
+### 团队协作流程
+所有开发在feature分支上进行，开发完成后提交Pull Request到main分支。
+PR提交后自动触发CI流水线执行`mvn -B verify`进行编译与单元测试。
+必须满足CI全部通过，并且经过代码评审获得批准后，才允许合并到main分支。
