@@ -54,6 +54,9 @@ public class Task {
     }
 
     public void complete() {
+        if (completed) {
+            throw new IllegalStateException("任务已完成，不能重复完成");
+        }
         completed = true;
     }
 
